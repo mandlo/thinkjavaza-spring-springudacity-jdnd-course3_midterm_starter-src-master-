@@ -1,6 +1,9 @@
 package com.udacity.course3.reviews.controller;
 
+import com.udacity.course3.reviews.model.Comment;
+import com.udacity.course3.reviews.model.Review;
 import com.udacity.course3.reviews.repository.CommentRepository;
+import com.udacity.course3.reviews.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Spring REST controller for working with comment entity.
@@ -17,6 +21,8 @@ import java.util.List;
 public class CommentsController {
 
     // TODO: Wire needed JPA repositories here
+    @Autowired
+    ReviewRepository reviewRepository;
 
     @Autowired
     CommentRepository commentRepository;
@@ -31,7 +37,9 @@ public class CommentsController {
      * @param reviewId The id of the review.
      */
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.POST)
-    public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId) {
+    public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId,
+                                                    @RequestBody Comment comment) {
+        Optional<Review> commentOptional = reviewRepository.findByPk(reviewId);
         throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
     }
 
