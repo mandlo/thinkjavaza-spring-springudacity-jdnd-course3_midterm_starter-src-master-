@@ -10,18 +10,18 @@ import java.util.List;
 @Entity
 public class Comment {
 
-    public Comment(Integer commentId, List<Review> reviewList) {
-        this.commentId = commentId;
-        this.reviewList = reviewList;
-    }
-
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer commentId;
 
+    private String commentDescription;
+
     @OneToMany
-    private List<Review> reviewList;
+    private List<Review> reviewList = new ArrayList<>();
+
+    @ManyToMany
+    private List<Product> products;
 
     public Comment() {
     }
@@ -44,5 +44,13 @@ public class Comment {
 
     public void setReviewList(List<Review> reviewList) {
         this.reviewList = reviewList;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

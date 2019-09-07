@@ -51,7 +51,6 @@ public class ProductsController {
                 } catch (Exception e) {
                     throw new HttpServerErrorException(HttpStatus.NOT_FOUND);
                 }
-
             }
 
             /**

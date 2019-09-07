@@ -1,6 +1,6 @@
 package com.udacity.course3.reviews.controller;
 
-import com.udacity.course3.reviews.dto.ReviewDto;
+import com.udacity.course3.reviews.model.Product;
 import com.udacity.course3.reviews.model.Review;
 import com.udacity.course3.reviews.repository.ProductRepository;
 import com.udacity.course3.reviews.repository.ReviewRepository;
@@ -9,11 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 /**
  * Spring REST controller for working with review entity.
@@ -41,9 +40,17 @@ public class ReviewsController {
      */
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.POST)
     public ResponseEntity<?> createReviewForProduct(@PathVariable("productId") Integer productId, @RequestBody Review review) {
-        //List<ReviewDto> review = f
 
-        throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+       try {
+           Optional<Product> optionalProduct = productRepository.findById(productId);
+           if (optionalProduct.isPresent()) {
+            reviewRepository.save(review);
+           return new ResponseEntity<>("Review is created", HttpStatus.CREATED);
+           }
+       } catch(Exception e) {
+           throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+       }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     /**
@@ -54,22 +61,19 @@ public class ReviewsController {
      */
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listReviewsForProduct(@PathVariable("productId") Integer productId) {
-
-        throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
-
-        private void validateProductExistence(List<ReviewDto> reviews) {
-            List<ReviewDto> list = reviews
-                    .stream()
-                    .filter(rvw -> Objects.isNull(productRepository.findProductById(rvw
-                            .getProduct()
-                            .getProductId())))
-                    .collect(Collectors.toList());
-
-//            if (!CollectionsUtils.isEmpty(list)) {
-//                new ResourceNotFoundException("Product not found");
-//            }
+       List list = new ArrayList<>();
+       Product product = new Product();
+        try{
+            Optional<Product> productOptional = productRepository.findById(productId);
+            if(productOptional.isPresent()) {
+                product = productOptional.get();
+                list = product.getReviewList();
+                return new ResponseEntity<List<?>>(list, HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
         }
-
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

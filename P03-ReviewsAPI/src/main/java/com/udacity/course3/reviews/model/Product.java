@@ -12,17 +12,15 @@ import java.util.List;
 public class Product {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productId;
+
+    private String productName;
 
     @OneToMany
     private List<Review> reviewList;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(name = "Review",
-    joinColumns = {@JoinColumn(name = "product_id")},
-    inverseJoinColumns = { @JoinColumn(name = "comment_id") })
+    @ManyToMany //(cascade = { CascadeType.ALL })
     private List<Comment> comments;
 
     public Product() {
@@ -46,5 +44,13 @@ public class Product {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
     }
 }

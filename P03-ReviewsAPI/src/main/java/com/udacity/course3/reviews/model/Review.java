@@ -8,29 +8,55 @@ import javax.persistence.*;
 @Entity
 public class Review {
 
-    @EmbeddedId
-    ReviewKeyPK pk;
+    @Id
+    @GeneratedValue
+    private Integer reviewId;
 
     @ManyToOne
+    @MapsId("product_id")
+    @JoinColumn(name = "product_id")
     Product product;
 
     @ManyToOne
+    @MapsId("comment_id")
+    @JoinColumn(name = "comment_id")
     Comment comment;
 
-    @Column(nullable = false)
     private Integer rating;
 
     public Review() {
         super();
     }
 
-    public Review(Product product, Review review, Integer rating) {
-        pk = new ReviewKeyPK();
-        pk.setProduct(product);
-        pk.setComment(comment);
-        this.rating = rating;
+    public Integer getReviewId() {
+        return reviewId;
     }
 
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
 
+    public Product getProduct() {
+        return product;
+    }
 
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
 }

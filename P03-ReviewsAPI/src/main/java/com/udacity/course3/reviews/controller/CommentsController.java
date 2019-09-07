@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,6 @@ import java.util.Optional;
 @RequestMapping("/comments")
 public class CommentsController {
 
-    // TODO: Wire needed JPA repositories here
     @Autowired
     ReviewRepository reviewRepository;
 
@@ -39,8 +39,16 @@ public class CommentsController {
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.POST)
     public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId,
                                                     @RequestBody Comment comment) {
-        Optional<Review> commentOptional = reviewRepository.findByPk(reviewId);
-        throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+        try {
+            Optional<Review> optionalProduct = reviewRepository.findById(reviewId);
+            if (optionalProduct.isPresent()) {
+                commentRepository.save(comment);
+                return new ResponseEntity<>("Comment is created", HttpStatus.CREATED);
+            }
+        } catch (Exception e) {
+            throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     /**
@@ -53,7 +61,18 @@ public class CommentsController {
      * @param reviewId The id of the review.
      */
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.GET)
-    public List<?> listCommentsForReview(@PathVariable("reviewId") Integer reviewId) {
-        throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+    public ResponseEntity<List<?>> listCommentsForReview(@PathVariable("reviewId") Integer reviewId) {
+
+        List<Review> reviewList = new ArrayList<>();
+        try {
+            Optional<Review> optionalReview = reviewRepository.findById(reviewId);
+            if (optionalReview.isPresent()) {
+                reviewList = reviewRepository.findAll();
+                return new ResponseEntity<List<?>>(reviewList, HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            throw new HttpServerErrorException(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
