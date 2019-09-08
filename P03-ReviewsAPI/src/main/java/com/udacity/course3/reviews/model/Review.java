@@ -17,6 +17,8 @@ public class Review {
     @JoinColumn(name = "product_id")
     Product product;
 
+    private String reviewDescription;
+
     private Integer rating;
 
     public Review() {
@@ -45,5 +47,13 @@ public class Review {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    public String getReviewDescription() {
+        return reviewDescription;
+    }
+
+    public void setReviewDescription(String reviewDescription) {
+        this.reviewDescription = reviewDescription;
     }
 }
