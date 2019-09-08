@@ -1,9 +1,6 @@
 package com.udacity.course3.reviews.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * Created by prisca on 2019/09/04.
