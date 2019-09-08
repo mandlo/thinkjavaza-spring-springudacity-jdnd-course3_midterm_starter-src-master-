@@ -1,8 +1,6 @@
 package com.udacity.course3.reviews.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by prisca on 2019/09/04.
@@ -18,10 +16,7 @@ public class Comment {
     private String commentDescription;
 
     @OneToMany
-    private List<Review> reviewList = new ArrayList<>();
-
-    @ManyToMany
-    private List<Product> products;
+    private Review review;
 
     public Comment() {
     }
@@ -38,19 +33,19 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public List<Review> getReviewList() {
-        return reviewList;
+    public String getCommentDescription() {
+        return commentDescription;
     }
 
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
+    public void setCommentDescription(String commentDescription) {
+        this.commentDescription = commentDescription;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public Review getReview() {
+        return review;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setReview(Review review) {
+        this.review = review;
     }
 }

@@ -17,11 +17,6 @@ public class Review {
     @JoinColumn(name = "product_id")
     Product product;
 
-    @ManyToOne
-    @MapsId("comment_id")
-    @JoinColumn(name = "comment_id")
-    Comment comment;
-
     private Integer rating;
 
     public Review() {
@@ -42,14 +37,6 @@ public class Review {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public Comment getComment() {
-        return comment;
-    }
-
-    public void setComment(Comment comment) {
-        this.comment = comment;
     }
 
     public Integer getRating() {

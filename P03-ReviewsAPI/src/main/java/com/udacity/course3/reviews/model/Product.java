@@ -17,11 +17,6 @@ public class Product {
 
     private String productName;
 
-    @OneToMany
-    private List<Review> reviewList;
-
-    @ManyToMany //(cascade = { CascadeType.ALL })
-    private List<Comment> comments;
 
     public Product() {
     }
@@ -38,19 +33,5 @@ public class Product {
         this.productId = productId;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public List<Review> getReviewList() {
-        return reviewList;
-    }
-
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
-    }
 }
