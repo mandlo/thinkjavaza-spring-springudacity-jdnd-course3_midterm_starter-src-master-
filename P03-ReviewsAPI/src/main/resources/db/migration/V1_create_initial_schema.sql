@@ -14,7 +14,7 @@ create table review(
  comment_id int(11),
  primary key(review_id));
 
-ALTER TABLE review add column review_description;
+ALTER TABLE review add column review_description varchar(300);
 
 ALTER TABLE review add constraint review_product_id_fk
 foreign key (product_id) references product (id);
