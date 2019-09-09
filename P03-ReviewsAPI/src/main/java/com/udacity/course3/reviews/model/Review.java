@@ -25,6 +25,15 @@ public class Review {
         super();
     }
 
+    public Review(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    public Review(Integer reviewId, Product product) {
+        this.reviewId = reviewId;
+        this.product = product;
+    }
+
     public Integer getReviewId() {
         return reviewId;
     }

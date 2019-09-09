@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
+
     Optional<Comment> findById(Integer id);
 
 
