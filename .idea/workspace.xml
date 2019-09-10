@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2aa45229-1818-4fcf-9c1e-5b2df0591e28" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/db/migration/V1__create_initial_schema.sql" afterPath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/db/migration/V1.2__Review_Application_Schema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Product.java" afterPath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/P03-ReviewsAPI/src/test/java/com/udacity/course3/reviews/ReviewsApplicationTests.java" afterPath="$PROJECT_DIR$/P03-ReviewsAPI/src/test/java/com/udacity/course3/reviews/ReviewsApplicationTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/P03-ReviewsAPI/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Product.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="97">
@@ -33,12 +30,22 @@
       <file leaf-file-name="Review.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Review.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="-186">
+              <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
                 <element signature="e#1225#1226#0" expanded="true" />
                 <element signature="e#1283#1284#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Comment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+              <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -92,16 +99,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
               <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewsApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/ReviewsApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -152,23 +149,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/pom.xml" />
-        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/ReviewKey.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/dto/ReviewDto.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/ReviewsApplication.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/ReviewKeyPK.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/repository/ReviewRepository.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/controller/CommentsController.java" />
-        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Comment.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/controller/ProductsController.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/db/migration/V1_create_initial_schema.sql" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/repository/CommentRepository.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/controller/ReviewsController.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/repository/ProductRepository.java" />
-        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Review.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/test/java/com/udacity/course3/reviews/ReviewsApplicationTests.java" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/db/migration/V1.2__Review_Application_Schema.sql" />
         <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Product.java" />
+        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Comment.java" />
+        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Review.java" />
+        <option value="$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -1035,13 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/ReviewKeyPK.java.bak" />
     <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/README.md">
       <provider selected="true" editor-type-id="text-editor">
@@ -1134,25 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Review.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding>
-            <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Comment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/db/migration/V1.2__Review_Application_Schema.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1168,6 +1139,33 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/java/com/udacity/course3/reviews/model/Review.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P03-ReviewsAPI/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
