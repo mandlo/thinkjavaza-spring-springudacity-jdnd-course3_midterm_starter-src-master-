@@ -16,9 +16,6 @@ public class Product {
 
     private String productName;
 
-    @OneToMany
-    private List<Review> reviewList = new ArrayList<Review>();
-
     public Product() {
     }
 
@@ -42,11 +39,4 @@ public class Product {
         this.productName = productName;
     }
 
-    public List<Review> getReviewList() {
-        return reviewList;
-    }
-
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
-    }
-}
+   }

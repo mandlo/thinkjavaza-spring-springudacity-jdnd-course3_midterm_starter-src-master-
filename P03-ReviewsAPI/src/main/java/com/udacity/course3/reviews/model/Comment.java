@@ -15,7 +15,7 @@ public class Comment {
 
     private String commentDescription;
 
-    @OneToMany
+    @ManyToOne
     private Review review;
 
     public Comment() {
