@@ -19,8 +19,6 @@ public class Review {
 
     private String reviewDescription;
 
-    private Integer rating;
-
     public Review() {
         super();
     }
@@ -48,14 +46,6 @@ public class Review {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
     }
 
     public String getReviewDescription() {

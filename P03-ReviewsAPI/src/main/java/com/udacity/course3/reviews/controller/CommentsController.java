@@ -22,9 +22,6 @@ import java.util.Optional;
 public class CommentsController {
 
     @Autowired
-    ReviewRepository reviewRepository;
-
-    @Autowired
     CommentRepository commentRepository;
     /**
      * Creates a comment for a review.
@@ -40,8 +37,8 @@ public class CommentsController {
     public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId,
                                                     @RequestBody Comment comment) {
         try {
-            Optional<Review> optionalProduct = reviewRepository.findById(reviewId);
-            if (optionalProduct.isPresent()) {
+            Optional<Review> optionalReview = commentRepository.findByReviewId(reviewId);
+            if (optionalReview.isPresent()) {
                 commentRepository.save(comment);
                 return new ResponseEntity<>("Comment is created", HttpStatus.CREATED);
             }
@@ -63,12 +60,12 @@ public class CommentsController {
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listCommentsForReview(@PathVariable("reviewId") Integer reviewId) {
 
-        List<Review> reviewList = new ArrayList<>();
+        List<Comment> commentList = new ArrayList<>();
         try {
-            Optional<Review> optionalReview = reviewRepository.findById(reviewId);
+            Optional<Review> optionalReview = commentRepository.findByReviewId(reviewId);
             if (optionalReview.isPresent()) {
-                reviewList = reviewRepository.findAll();
-                return new ResponseEntity<List<?>>(reviewList, HttpStatus.OK);
+                commentList = commentRepository.findAll();
+                return new ResponseEntity<List<?>>(commentList, HttpStatus.OK);
             }
         } catch (Exception e) {
             throw new HttpServerErrorException(HttpStatus.NOT_FOUND);

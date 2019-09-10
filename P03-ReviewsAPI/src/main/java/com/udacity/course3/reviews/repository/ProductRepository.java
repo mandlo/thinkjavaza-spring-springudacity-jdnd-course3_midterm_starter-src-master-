@@ -16,11 +16,7 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-//    @Query("select p from Product p where p.productId = :productId")
-//    <Optional>Product findById(@Param("productId") Integer id);
-
-    @Query("select * from Product p where p.reviewList = :reviewList")
-    List<Review> findByReviewList();
-
+    @Query("select p from Product p where p.productId = :productId")
+    Product findByProductId(@Param("productId") Integer id);
 
 }

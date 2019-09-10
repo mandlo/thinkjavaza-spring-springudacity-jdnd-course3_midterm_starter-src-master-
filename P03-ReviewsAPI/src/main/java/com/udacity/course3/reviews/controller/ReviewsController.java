@@ -42,7 +42,7 @@ public class ReviewsController {
     public ResponseEntity<?> createReviewForProduct(@PathVariable("productId") Integer productId, @RequestBody Review review) {
 
        try {
-           Optional<Product> optionalProduct = productRepository.findById(productId);
+           Optional<Product> optionalProduct = reviewRepository.findByProductId(productId);
            if (optionalProduct.isPresent()) {
             reviewRepository.save(review);
            return new ResponseEntity<>("Review is created", HttpStatus.CREATED);
@@ -62,12 +62,10 @@ public class ReviewsController {
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listReviewsForProduct(@PathVariable("productId") Integer productId) {
        List list = new ArrayList<>();
-       Product product = new Product();
         try{
-            Optional<Product> productOptional = productRepository.findById(productId);
+            Optional<Product> productOptional = reviewRepository.findByProductId(productId);
             if(productOptional.isPresent()) {
-                product = productOptional.get();
-                list = product.getReviewList();
+                list = reviewRepository.findAll();
                 return new ResponseEntity<List<?>>(list, HttpStatus.OK);
             }
         } catch (Exception e) {
