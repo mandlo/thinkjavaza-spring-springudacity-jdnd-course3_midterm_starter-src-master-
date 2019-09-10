@@ -20,24 +20,9 @@ import java.util.Optional;
 @RestController
 public class ReviewsController {
 
-    // TODO: Wire JPA repositories here
     @Autowired
     ReviewRepository reviewRepository;
 
-    @Autowired
-    ProductRepository productRepository;
-
-    /**
-     * Creates a review for a product.
-     * <p>
-     * 1. Add argument for review entity. Use {@link RequestBody} annotation.
-     * 2. Check for existence of product.
-     * 3. If product not found, return NOT_FOUND.
-     * 4. If found, save review.
-     *
-     * @param productId The id of the product.
-     * @return The created review or 404 if product id is not found.
-     */
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.POST)
     public ResponseEntity<?> createReviewForProduct(@PathVariable("productId") Integer productId, @RequestBody Review review) {
 
@@ -53,12 +38,6 @@ public class ReviewsController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * Lists reviews by product.
-     *
-     * @param productId The id of the product.
-     * @return The list of reviews.
-     */
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listReviewsForProduct(@PathVariable("productId") Integer productId) {
        List list = new ArrayList<>();
@@ -73,6 +52,5 @@ public class ReviewsController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 }
 

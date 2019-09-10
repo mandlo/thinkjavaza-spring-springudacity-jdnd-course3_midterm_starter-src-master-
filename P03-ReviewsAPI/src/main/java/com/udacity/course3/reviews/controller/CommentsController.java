@@ -23,16 +23,7 @@ public class CommentsController {
 
     @Autowired
     CommentRepository commentRepository;
-    /**
-     * Creates a comment for a review.
-     *
-     * 1. Add argument for comment entity. Use {@link RequestBody} annotation.
-     * 2. Check for existence of review.
-     * 3. If review not found, return NOT_FOUND.
-     * 4. If found, save comment.
-     *
-     * @param reviewId The id of the review.
-     */
+
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.POST)
     public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId,
                                                     @RequestBody Comment comment) {
@@ -48,15 +39,6 @@ public class CommentsController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * List comments for a review.
-     *
-     * 2. Check for existence of review.
-     * 3. If review not found, return NOT_FOUND.
-     * 4. If found, return list of comments.
-     *
-     * @param reviewId The id of the review.
-     */
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listCommentsForReview(@PathVariable("reviewId") Integer reviewId) {
 
