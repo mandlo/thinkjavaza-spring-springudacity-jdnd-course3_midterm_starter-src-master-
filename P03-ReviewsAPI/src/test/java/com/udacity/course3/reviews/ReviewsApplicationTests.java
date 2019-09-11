@@ -45,31 +45,11 @@ public class ReviewsApplicationTests {
 		productRepository.save(product);
 	}
 
-
 	@Test
 	public void contextLoads() {
 	}
 
-	@Test
-	public void injectedComponentsAreNotNull(){
 
-		assertThat(commentRepository.findById(2),isNotNull());
-		assertThat(reviewRepository.findById(4),isNotNull());
-		assertThat(productRepository.findById(6),isNotNull());
-	}
-
-//3- Make a method for every repository . In this method try to save an object and retrieve it and check if it was retrieved or not
-
-
-	@Test
-	public void whenSavedProduct_thenfindProductName() {
-		//create product and save it
-		Product product = new Product();
-		product.setProductName("Testing_Product");
-		productRepository.save(product);
-
-		assertThat(productRepository.findById(product.getProductId()), isNotNull());
-	}
 
 
 }

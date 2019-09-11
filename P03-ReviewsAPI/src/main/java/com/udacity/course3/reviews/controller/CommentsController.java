@@ -22,13 +22,16 @@ import java.util.Optional;
 public class CommentsController {
 
     @Autowired
-    CommentRepository commentRepository;
+    private CommentRepository commentRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     @RequestMapping(value = "/reviews/{reviewId}", method = RequestMethod.POST)
     public ResponseEntity<?> createCommentForReview(@PathVariable("reviewId") Integer reviewId,
                                                     @RequestBody Comment comment) {
         try {
-            Optional<Review> optionalReview = commentRepository.findByReviewId(reviewId);
+            Optional<Review> optionalReview = reviewRepository.findById(reviewId);
             if (optionalReview.isPresent()) {
                 commentRepository.save(comment);
                 return new ResponseEntity<>("Comment is created", HttpStatus.CREATED);

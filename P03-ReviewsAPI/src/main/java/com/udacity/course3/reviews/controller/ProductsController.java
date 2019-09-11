@@ -11,9 +11,6 @@ import org.springframework.web.client.HttpServerErrorException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Spring REST controller for working with product entity.
- */
 @RestController
 @RequestMapping("/products")
 public class ProductsController {
@@ -31,21 +28,15 @@ public class ProductsController {
         }
     }
 
-            @RequestMapping(value = "/{id}")
-            public ResponseEntity<?> findById (@PathVariable("id") Integer id){
-                try {
-                    return new ResponseEntity<>(productRepository.findById(id), HttpStatus.OK);
-                } catch (Exception e) {
+    @RequestMapping(value = "/{id}")
+    public ResponseEntity<?> findById (@PathVariable("id") Integer id){
+        try {
+           return new ResponseEntity<>(productRepository.findById(id), HttpStatus.OK);
+            } catch (Exception e) {
                     throw new HttpServerErrorException(HttpStatus.NOT_FOUND);
-                }
-
             }
+    }
 
-            /**
-             * Lists all products.
-             *
-             * @return The list of products.
-             */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<?> listProducts () {
        List<Product> productList = new ArrayList<>();
@@ -55,5 +46,5 @@ public class ProductsController {
              } catch (Exception e) {
                     throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
              }
-            }
+        }
    }

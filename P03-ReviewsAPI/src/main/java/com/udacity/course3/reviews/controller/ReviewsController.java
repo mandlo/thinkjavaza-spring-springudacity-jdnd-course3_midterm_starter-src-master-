@@ -2,7 +2,6 @@ package com.udacity.course3.reviews.controller;
 
 import com.udacity.course3.reviews.model.Product;
 import com.udacity.course3.reviews.model.Review;
-import com.udacity.course3.reviews.repository.ProductRepository;
 import com.udacity.course3.reviews.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
