@@ -47,9 +47,10 @@ public class CommentsController {
 
         List<Comment> commentList = new ArrayList<>();
         try {
-            Optional<Review> optionalReview = commentRepository.findByReviewId(reviewId);
+            Optional<Review> optionalReview = reviewRepository.findById(reviewId);
             if (optionalReview.isPresent()) {
-                commentList = commentRepository.findAll();
+                Review review = optionalReview.get();
+                commentList = commentRepository.findCommentsByReview(review);
                 return new ResponseEntity<List<?>>(commentList, HttpStatus.OK);
             }
         } catch (Exception e) {

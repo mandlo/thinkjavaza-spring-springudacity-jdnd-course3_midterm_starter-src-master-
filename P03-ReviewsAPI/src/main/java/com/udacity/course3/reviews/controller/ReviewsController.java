@@ -2,6 +2,7 @@ package com.udacity.course3.reviews.controller;
 
 import com.udacity.course3.reviews.model.Product;
 import com.udacity.course3.reviews.model.Review;
+import com.udacity.course3.reviews.repository.ProductRepository;
 import com.udacity.course3.reviews.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,11 +23,14 @@ public class ReviewsController {
     @Autowired
     ReviewRepository reviewRepository;
 
+    @Autowired
+    ProductRepository productRepository;
+
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.POST)
     public ResponseEntity<?> createReviewForProduct(@PathVariable("productId") Integer productId, @RequestBody Review review) {
 
        try {
-           Optional<Product> optionalProduct = reviewRepository.findByProductId(productId);
+           Optional<Product> optionalProduct = productRepository.findById(productId);
            if (optionalProduct.isPresent()) {
             reviewRepository.save(review);
            return new ResponseEntity<>("Review is created", HttpStatus.CREATED);
@@ -39,12 +43,13 @@ public class ReviewsController {
 
     @RequestMapping(value = "/reviews/products/{productId}", method = RequestMethod.GET)
     public ResponseEntity<List<?>> listReviewsForProduct(@PathVariable("productId") Integer productId) {
-       List list = new ArrayList<>();
+       List<Review> reviewList = new ArrayList<>();
         try{
-            Optional<Product> productOptional = reviewRepository.findByProductId(productId);
+            Optional<Product> productOptional = productRepository.findById(productId);
             if(productOptional.isPresent()) {
-                list = reviewRepository.findAll();
-                return new ResponseEntity<List<?>>(list, HttpStatus.OK);
+                Product product = productOptional.get();
+                reviewList = reviewRepository.findReviewsByProduct(product);
+                return new ResponseEntity<List<?>>(reviewList, HttpStatus.OK);
             }
         } catch (Exception e) {
             throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
