@@ -11,7 +11,7 @@ public class Comment {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer commentId;
+    private Integer id;
 
     private String commentDescription;
 
@@ -21,16 +21,16 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Integer commentId) {
-        this.commentId = commentId;
+    public Comment(Integer id) {
+        this.id = id;
     }
 
-    public Integer getCommentId() {
-        return commentId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCommentDescription() {

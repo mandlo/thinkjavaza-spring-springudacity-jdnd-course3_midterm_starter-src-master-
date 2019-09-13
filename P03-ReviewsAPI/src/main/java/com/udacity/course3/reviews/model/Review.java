@@ -9,8 +9,8 @@ import javax.persistence.*;
 public class Review {
 
     @Id
-    @GeneratedValue
-    private Integer reviewId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
     @MapsId("product_id")
@@ -24,20 +24,20 @@ public class Review {
     }
 
     public Review(Integer reviewId) {
-        this.reviewId = reviewId;
+        this.id = reviewId;
     }
 
     public Review(Integer reviewId, Product product) {
-        this.reviewId = reviewId;
+        this.id = reviewId;
         this.product = product;
     }
 
     public Integer getReviewId() {
-        return reviewId;
+        return id;
     }
 
     public void setReviewId(Integer reviewId) {
-        this.reviewId = reviewId;
+        this.id = reviewId;
     }
 
     public Product getProduct() {

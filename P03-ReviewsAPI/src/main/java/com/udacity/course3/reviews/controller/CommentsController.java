@@ -50,7 +50,7 @@ public class CommentsController {
             Optional<Review> optionalReview = reviewRepository.findById(reviewId);
             if (optionalReview.isPresent()) {
                 Review review = optionalReview.get();
-                commentList = commentRepository.findCommentsByReview(review);
+                commentList = commentRepository.findByReview(review);
                 return new ResponseEntity<List<?>>(commentList, HttpStatus.OK);
             }
         } catch (Exception e) {

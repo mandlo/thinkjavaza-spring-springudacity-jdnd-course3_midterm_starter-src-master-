@@ -48,7 +48,7 @@ public class ReviewsController {
             Optional<Product> productOptional = productRepository.findById(productId);
             if(productOptional.isPresent()) {
                 Product product = productOptional.get();
-                reviewList = reviewRepository.findReviewsByProduct(product);
+                reviewList = reviewRepository.findByProduct(product);
                 return new ResponseEntity<List<?>>(reviewList, HttpStatus.OK);
             }
         } catch (Exception e) {

@@ -15,7 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.test.context.ContextConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.isNotNull;
@@ -23,7 +27,6 @@ import static org.mockito.ArgumentMatchers.isNotNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@SpringBootTest
 public class ReviewsApplicationTests {
 
 	@Autowired
@@ -37,17 +40,24 @@ public class ReviewsApplicationTests {
 
 	@Before
 	public void setup() {
-		Comment comment = new Comment(2);
-		commentRepository.save(comment);
-		Review review = new Review(4);
-		reviewRepository.save(review);
 		Product product = new Product(6);
+		product.setProductName("camera");
 		productRepository.save(product);
+		Review review = new Review(4);
+		review.setReviewDescription("great!!");
+		review.setProduct(product);
+		reviewRepository.save(review);
+		Comment comment = new Comment(2);
+		comment.setCommentDescription("Wow!!");
+		comment.setReview(review);
+		commentRepository.save(comment);
+
 	}
 
 	@Test
 	public void contextLoads() {
 	}
+
 
 
 

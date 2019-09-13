@@ -10,23 +10,23 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productId;
+    private Integer id;
 
     private String productName;
 
     public Product() {
     }
 
-    public Product(Integer productId) {
-        this.productId = productId;
+    public Product(Integer id) {
+        this.id = id;
     }
 
-    public Integer getProductId() {
-        return productId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getProductName() {

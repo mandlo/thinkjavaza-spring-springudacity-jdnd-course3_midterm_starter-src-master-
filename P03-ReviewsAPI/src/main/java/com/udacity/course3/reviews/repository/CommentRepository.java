@@ -14,7 +14,6 @@ import java.util.Optional;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
-    List<Comment> findCommentsByReview(Review review);
-
+    List<Comment> findByReview(Review review);
 
 }
