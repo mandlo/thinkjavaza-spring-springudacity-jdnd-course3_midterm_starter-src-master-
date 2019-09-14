@@ -10,7 +10,7 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer reviewId;
 
     @ManyToOne
     @MapsId("product_id")
@@ -24,20 +24,20 @@ public class Review {
     }
 
     public Review(Integer reviewId) {
-        this.id = reviewId;
+        this.reviewId = reviewId;
     }
 
     public Review(Integer reviewId, Product product) {
-        this.id = reviewId;
+        this.reviewId = reviewId;
         this.product = product;
     }
 
     public Integer getReviewId() {
-        return id;
+        return reviewId;
     }
 
     public void setReviewId(Integer reviewId) {
-        this.id = reviewId;
+        this.reviewId = reviewId;
     }
 
     public Product getProduct() {

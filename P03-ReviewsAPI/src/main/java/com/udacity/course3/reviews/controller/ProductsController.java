@@ -10,6 +10,7 @@ import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -29,13 +30,19 @@ public class ProductsController {
     }
 
     @RequestMapping(value = "/{id}")
-    public ResponseEntity<?> findById (@PathVariable("id") Integer id){
+    public ResponseEntity<?> findById (@PathVariable("id") Integer id) {
         try {
-           return new ResponseEntity<>(productRepository.findById(id), HttpStatus.OK);
-            } catch (Exception e) {
-                    throw new HttpServerErrorException(HttpStatus.NOT_FOUND);
+           Optional <Product> opProduct = productRepository.findById(id);
+            if (opProduct.isPresent()) {
+                Product product = opProduct.get();
+                return new ResponseEntity<>(product, HttpStatus.OK);
             }
+        } catch (Exception e) {
+            throw new HttpServerErrorException(HttpStatus.NOT_IMPLEMENTED);
+        }
+           return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
     }
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<?> listProducts () {
