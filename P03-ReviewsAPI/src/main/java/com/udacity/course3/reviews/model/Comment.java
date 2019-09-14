@@ -18,6 +18,11 @@ public class Comment {
     @ManyToOne
     private Review review;
 
+    public Comment(Integer id, Review review) {
+        this.id = id;
+        this.review = review;
+    }
+
     public Comment() {
     }
 

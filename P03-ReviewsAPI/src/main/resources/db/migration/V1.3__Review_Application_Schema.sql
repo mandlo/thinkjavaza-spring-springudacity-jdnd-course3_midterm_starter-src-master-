@@ -10,7 +10,7 @@ review_id int(11) not null,
 primary key(id));
 
 create table review(
- id int(11) auto_increment,
+ id int(11) not null auto_increment,
  product_id int(11),
  primary key(id));
 
