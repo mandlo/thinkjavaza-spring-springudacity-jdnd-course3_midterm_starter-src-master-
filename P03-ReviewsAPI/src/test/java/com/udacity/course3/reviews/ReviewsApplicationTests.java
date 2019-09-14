@@ -116,5 +116,4 @@ public class ReviewsApplicationTests {
 		commentRepository.save(comment);
 		assertThat(commentRepository.findById(comment.getId())).isNotNull();
 	}
-
 }
