@@ -13,7 +13,6 @@ public class Review {
     private Integer id;
 
     @ManyToOne
-    @MapsId("product_id")
     @JoinColumn(name = "product_id")
     Product product;
 

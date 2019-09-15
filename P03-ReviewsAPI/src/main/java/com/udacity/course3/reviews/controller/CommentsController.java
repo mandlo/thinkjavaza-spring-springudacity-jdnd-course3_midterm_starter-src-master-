@@ -33,6 +33,7 @@ public class CommentsController {
         try {
             Optional<Review> optionalReview = reviewRepository.findById(reviewId);
             if (optionalReview.isPresent()) {
+                comment.setReview(optionalReview.get());
                 commentRepository.save(comment);
                 return new ResponseEntity<>("Comment is created", HttpStatus.CREATED);
             }

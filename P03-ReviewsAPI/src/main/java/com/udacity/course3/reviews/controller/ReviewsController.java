@@ -32,7 +32,8 @@ public class ReviewsController {
        try {
            Optional<Product> optionalProduct = productRepository.findById(productId);
            if (optionalProduct.isPresent()) {
-            reviewRepository.save(review);
+               review.setProduct(optionalProduct.get());
+               reviewRepository.save(review);
            return new ResponseEntity<>("Review is created", HttpStatus.CREATED);
            }
        } catch(Exception e) {
